@@ -56,49 +56,62 @@ public class GildedRose
 	{
 		switch (item.getName())
 		{
-			case "Sulfuras, Hand of Ragnaros":
+			case "Sulfuras, Hand of Ragnaros":		
 				return;
 
 			case "Aged Brie":
 			{
-				increaseItemQuality(item);
-
-				if (hasSellInExpired(item))
-				{
-					increaseItemQuality(item);
-				}
+				updateAgedBrieItemQuality(item);
 				break;
 			}
 			case "Backstage passes to a TAFKAL80ETC concert":
 			{
-				increaseItemQuality(item);
-
-				if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
-				{
-					increaseItemQuality(item);
-				}
-
-				if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
-				{
-					increaseItemQuality(item);
-				}
-
-				if (hasSellInExpired(item))
-				{
-					item.setQuality(0);
-				}
-
+				updateBackstagePassItemQuality(item);
 				break;
 			}
 			default:
-				decreaseItemQuality(item);
-
-				if (hasSellInExpired(item))
-				{
-					decreaseItemQuality(item);
-				}
+				updateCommonItemQuality(item);
 				break;
+		}
+	}
 
+	private static void updateCommonItemQuality(Item item)
+	{
+		decreaseItemQuality(item);
+
+		if (hasSellInExpired(item))
+		{
+			decreaseItemQuality(item);
+		}
+	}
+
+	private static void updateBackstagePassItemQuality(Item item)
+	{
+		increaseItemQuality(item);
+
+		if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
+		{
+			increaseItemQuality(item);
+		}
+
+		if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
+		{
+			increaseItemQuality(item);
+		}
+
+		if (hasSellInExpired(item))
+		{
+			item.setQuality(0);
+		}
+	}
+
+	private static void updateAgedBrieItemQuality(Item item)
+	{
+		increaseItemQuality(item);
+
+		if (hasSellInExpired(item))
+		{
+			increaseItemQuality(item);
 		}
 	}
 

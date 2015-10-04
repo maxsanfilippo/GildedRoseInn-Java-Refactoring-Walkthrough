@@ -49,7 +49,7 @@ public class GildedRose
 	{
 		if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
 		{
-			item.setSellIn(item.getSellIn() - 1);
+			decrementItemSellIn(item);
 		}
 		
 		if ((!"Aged Brie".equals(item.getName()))
@@ -117,6 +117,11 @@ public class GildedRose
 				}
 			}
 		}
+	}
+
+	private static void decrementItemSellIn(Item item)
+	{
+		item.setSellIn(item.getSellIn() - 1);
 	}
 
 }

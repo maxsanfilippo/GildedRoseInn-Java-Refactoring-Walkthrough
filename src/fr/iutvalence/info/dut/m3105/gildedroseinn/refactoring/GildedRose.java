@@ -29,9 +29,9 @@ public class GildedRose
 
 	public static void updateQualityAndSellInForAllItems()
 	{
-		for (int i = 0; i < items.size(); i++)
+		for (int itemIndex = 0; itemIndex < items.size(); itemIndex++)
 		{
-			Item item = items.get(i);
+			Item item = items.get(itemIndex);
 			
 			updateItemQualityAndSellIn(item);
 		}

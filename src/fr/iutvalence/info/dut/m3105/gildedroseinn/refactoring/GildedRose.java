@@ -54,62 +54,72 @@ public class GildedRose
 
 	private static void updateItemQuality(Item item)
 	{
-		if ("Sulfuras, Hand of Ragnaros".equals(item.getName())) return;
+		switch (item.getName())
+		{
+		case "Sulfuras, Hand of Ragnaros":
+			return;
 
-		if (("Aged Brie".equals(item.getName())) || "Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
+		case "Aged Brie":
+		{
+			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
+			{
+				incrementItemQuality(item);
+			}
+			break;
+		}
+		case "Backstage passes to a TAFKAL80ETC concert":
 		{
 			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 			{
 				incrementItemQuality(item);
 
-				if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
+				if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
 				{
-					if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
-					{
-						increaseItemQuality(item);
-					}
+					increaseItemQuality(item);
+				}
 
-					if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
-					{
-						increaseItemQuality(item);
-					}
+				if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
+				{
+					increaseItemQuality(item);
 				}
 			}
+			break;
 		}
-		else
-		{
+		default:
 			decreaseItemQuality(item);
+			break;
+
 		}
 
 		switch (item.getName())
 		{
-			case "Aged Brie" :
+		case "Aged Brie":
+		{
+			if (item.getSellIn() < 0)
 			{
-				if (item.getSellIn() < 0)
-				{
 				increaseItemQuality(item);
-				}
-				break;
 			}
-			
-			case "Backstage passes to a TAFKAL80ETC concert" :
+			break;
+		}
+
+		case "Backstage passes to a TAFKAL80ETC concert":
+		{
+			if (item.getSellIn() < 0)
 			{
-				if (item.getSellIn() < 0)
-				{
-					item.setQuality(item.getQuality() - item.getQuality());
-				}
+				item.setQuality(item.getQuality() - item.getQuality());
 			}
-			
-			default :
+		}
+
+		default:
+		{
+			if (item.getSellIn() < 0)
 			{
-				if (item.getSellIn() < 0)
+				if (item.getQuality() > MINIMUM_ITEM_QUALITY)
 				{
-					if (item.getQuality() > MINIMUM_ITEM_QUALITY)
-					{
-						decrementItemQuality(item);
-					}
+					decrementItemQuality(item);
 				}
 			}
+		}
 		}
 	}
 

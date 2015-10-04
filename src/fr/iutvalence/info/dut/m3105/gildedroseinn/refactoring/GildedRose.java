@@ -13,7 +13,7 @@ public class GildedRose
 	private static final int MAXIMUM_ITEM_QUALITY = 50;
 
 	private static final int MINIMUM_ITEM_QUALITY = 0;
-	
+
 	private static List<Item> items = null;
 
 	/**
@@ -40,7 +40,7 @@ public class GildedRose
 		for (int itemIndex = 0; itemIndex < items.size(); itemIndex++)
 		{
 			Item item = items.get(itemIndex);
-			
+
 			updateItemQualityAndSellIn(item);
 		}
 	}
@@ -48,12 +48,14 @@ public class GildedRose
 	private static void updateItemQualityAndSellIn(Item item)
 	{
 		updateItemSellIn(item);
-		
+
 		updateItemQuality(item);
 	}
 
 	private static void updateItemQuality(Item item)
 	{
+		if ("Sulfuras, Hand of Ragnaros".equals(item.getName())) return;
+
 		if (("Aged Brie".equals(item.getName())) || "Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 		{
 			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
@@ -76,10 +78,7 @@ public class GildedRose
 		}
 		else
 		{
-			if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
-			{
-				decreaseItemQuality(item);
-			}
+			decreaseItemQuality(item);
 		}
 
 		if (item.getSellIn() < 0)
@@ -96,12 +95,9 @@ public class GildedRose
 				}
 				else
 				{
-					if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
+					if (item.getQuality() > MINIMUM_ITEM_QUALITY)
 					{
-						if (item.getQuality() > MINIMUM_ITEM_QUALITY)
-						{
-							decrementItemQuality(item);
-						}
+						decrementItemQuality(item);
 					}
 				}
 			}

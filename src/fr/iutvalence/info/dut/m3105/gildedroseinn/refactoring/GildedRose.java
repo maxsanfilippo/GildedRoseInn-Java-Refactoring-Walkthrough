@@ -6,6 +6,8 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final int MINIMUM_ITEM_QUALITY = 0;
+	
 	private static List<Item> items = null;
 
 	/**
@@ -47,7 +49,7 @@ public class GildedRose
 		if ((!"Aged Brie".equals(item.getName()))
 				&& !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 		{
-			if (item.getQuality() > 0)
+			if (item.getQuality() > MINIMUM_ITEM_QUALITY)
 			{
 				if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
 				{
@@ -88,7 +90,7 @@ public class GildedRose
 			{
 				if (!"Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 				{
-					if (item.getQuality() > 0)
+					if (item.getQuality() > MINIMUM_ITEM_QUALITY)
 					{
 						if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
 						{

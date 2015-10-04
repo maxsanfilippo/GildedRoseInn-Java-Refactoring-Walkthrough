@@ -55,9 +55,9 @@ public class GildedRose
 		if ((!"Aged Brie".equals(item.getName()))
 				&& !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 		{
-			if (item.getQuality() > MINIMUM_ITEM_QUALITY)
+			if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
 			{
-				if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
+				if (item.getQuality() > MINIMUM_ITEM_QUALITY)
 				{
 					decrementItemQuality(item);
 				}

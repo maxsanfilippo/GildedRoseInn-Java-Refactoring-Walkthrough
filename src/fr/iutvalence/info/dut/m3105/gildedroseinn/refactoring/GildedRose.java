@@ -61,10 +61,7 @@ public class GildedRose
 
 		case "Aged Brie":
 		{
-			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
-			{
-				incrementItemQuality(item);
-			}
+			increaseItemQuality(item);
 
 			if (item.getSellIn() < 0)
 			{

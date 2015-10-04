@@ -85,7 +85,7 @@ public class GildedRose
 
 			if (item.getSellIn() < 0)
 			{
-				item.setQuality(item.getQuality() - item.getQuality());
+				item.setQuality(0);
 			}
 
 			break;

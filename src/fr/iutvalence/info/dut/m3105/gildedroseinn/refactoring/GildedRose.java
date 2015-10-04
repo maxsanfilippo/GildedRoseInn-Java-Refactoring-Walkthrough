@@ -95,10 +95,7 @@ public class GildedRose
 
 			if (hasSellInExpired(item))
 			{
-				if (item.getQuality() > MINIMUM_ITEM_QUALITY)
-				{
-					decrementItemQuality(item);
-				}
+				decreaseItemQuality(item);
 			}
 			break;
 

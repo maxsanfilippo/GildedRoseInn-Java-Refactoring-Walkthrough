@@ -70,18 +70,12 @@ public class GildedRose
 				{
 					if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
 					{
-						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
-						{
-							incrementItemQuality(item);
-						}
+						increaseItemQuality(item);
 					}
 
 					if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
 					{
-						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
-						{
-							incrementItemQuality(item);
-						}
+						increaseItemQuality(item);
 					}
 				}
 			}
@@ -108,11 +102,16 @@ public class GildedRose
 			}
 			else
 			{
-				if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
-				{
-					incrementItemQuality(item);
-				}
+				increaseItemQuality(item);
 			}
+		}
+	}
+
+	private static void increaseItemQuality(Item item)
+	{
+		if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
+		{
+			incrementItemQuality(item);
 		}
 	}
 

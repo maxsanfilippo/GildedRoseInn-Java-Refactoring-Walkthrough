@@ -69,10 +69,22 @@ public class GildedRose
 				updateBackstagePassItemQuality(item);
 				break;
 			}
+			
+			case "Conjured Mana Cake":
+			{
+				updateConjuredItemQuality(item);
+				break;
+			}
 			default:
 				updateCommonItemQuality(item);
 				break;
 		}
+	}
+
+	private static void updateConjuredItemQuality(Item item)
+	{
+		updateCommonItemQuality(item);
+		updateCommonItemQuality(item);
 	}
 
 	private static void updateCommonItemQuality(Item item)

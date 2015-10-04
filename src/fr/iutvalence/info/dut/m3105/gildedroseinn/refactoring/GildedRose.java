@@ -67,7 +67,7 @@ public class GildedRose
 		{
 			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 			{
-				item.setQuality(item.getQuality() + 1);
+				incrementItemQuality(item);
 
 				if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 				{
@@ -75,7 +75,7 @@ public class GildedRose
 					{
 						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 						{
-							item.setQuality(item.getQuality() + 1);
+							incrementItemQuality(item);
 						}
 					}
 
@@ -83,7 +83,7 @@ public class GildedRose
 					{
 						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 						{
-							item.setQuality(item.getQuality() + 1);
+							incrementItemQuality(item);
 						}
 					}
 				}
@@ -113,10 +113,15 @@ public class GildedRose
 			{
 				if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 				{
-					item.setQuality(item.getQuality() + 1);
+					incrementItemQuality(item);
 				}
 			}
 		}
+	}
+
+	private static void incrementItemQuality(Item item)
+	{
+		item.setQuality(item.getQuality() + 1);
 	}
 
 	private static void decrementItemQuality(Item item)

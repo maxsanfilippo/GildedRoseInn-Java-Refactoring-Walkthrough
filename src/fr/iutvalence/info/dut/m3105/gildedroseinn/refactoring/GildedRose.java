@@ -65,6 +65,11 @@ public class GildedRose
 			{
 				incrementItemQuality(item);
 			}
+
+			if (item.getSellIn() < 0)
+			{
+				increaseItemQuality(item);
+			}
 			break;
 		}
 		case "Backstage passes to a TAFKAL80ETC concert":
@@ -83,35 +88,17 @@ public class GildedRose
 					increaseItemQuality(item);
 				}
 			}
-			break;
-		}
-		default:
-			decreaseItemQuality(item);
-			break;
 
-		}
-
-		switch (item.getName())
-		{
-		case "Aged Brie":
-		{
-			if (item.getSellIn() < 0)
-			{
-				increaseItemQuality(item);
-			}
-			break;
-		}
-
-		case "Backstage passes to a TAFKAL80ETC concert":
-		{
 			if (item.getSellIn() < 0)
 			{
 				item.setQuality(item.getQuality() - item.getQuality());
 			}
-		}
 
+			break;
+		}
 		default:
-		{
+			decreaseItemQuality(item);
+
 			if (item.getSellIn() < 0)
 			{
 				if (item.getQuality() > MINIMUM_ITEM_QUALITY)
@@ -119,7 +106,8 @@ public class GildedRose
 					decrementItemQuality(item);
 				}
 			}
-		}
+			break;
+
 		}
 	}
 

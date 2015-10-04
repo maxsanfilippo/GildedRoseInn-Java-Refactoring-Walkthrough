@@ -71,19 +71,16 @@ public class GildedRose
 		}
 		case "Backstage passes to a TAFKAL80ETC concert":
 		{
-			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
+			increaseItemQuality(item);
+
+			if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
 			{
-				incrementItemQuality(item);
+				increaseItemQuality(item);
+			}
 
-				if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
-				{
-					increaseItemQuality(item);
-				}
-
-				if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
-				{
-					increaseItemQuality(item);
-				}
+			if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
+			{
+				increaseItemQuality(item);
 			}
 
 			if (item.getSellIn() < 0)

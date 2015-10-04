@@ -49,6 +49,11 @@ public class GildedRose
 	{
 		updateItemSellIn(item);
 		
+		updateItemQuality(item);
+	}
+
+	private static void updateItemQuality(Item item)
+	{
 		if ((!"Aged Brie".equals(item.getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 		{
 			if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))

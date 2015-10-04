@@ -6,6 +6,8 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final int SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST = 10;
+
 	private static final int MAXIMUM_ITEM_QUALITY = 50;
 
 	private static final int MINIMUM_ITEM_QUALITY = 0;
@@ -67,7 +69,7 @@ public class GildedRose
 
 				if ("Backstage passes to a TAFKAL80ETC concert".equals(item.getName()))
 				{
-					if (item.getSellIn() < 10)
+					if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST)
 					{
 						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 						{

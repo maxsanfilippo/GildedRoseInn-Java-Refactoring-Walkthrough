@@ -57,10 +57,7 @@ public class GildedRose
 		{
 			if (!"Sulfuras, Hand of Ragnaros".equals(item.getName()))
 			{
-				if (item.getQuality() > MINIMUM_ITEM_QUALITY)
-				{
-					decrementItemQuality(item);
-				}
+				decreaseItemQuality(item);
 			}
 		}
 		else
@@ -116,6 +113,14 @@ public class GildedRose
 					incrementItemQuality(item);
 				}
 			}
+		}
+	}
+
+	private static void decreaseItemQuality(Item item)
+	{
+		if (item.getQuality() > MINIMUM_ITEM_QUALITY)
+		{
+			decrementItemQuality(item);
 		}
 	}
 

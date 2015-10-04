@@ -63,7 +63,7 @@ public class GildedRose
 		{
 			increaseItemQuality(item);
 
-			if (item.getSellIn() < 0)
+			if (hasSellInExpired(item))
 			{
 				increaseItemQuality(item);
 			}
@@ -83,7 +83,7 @@ public class GildedRose
 				increaseItemQuality(item);
 			}
 
-			if (item.getSellIn() < 0)
+			if (hasSellInExpired(item))
 			{
 				item.setQuality(0);
 			}
@@ -93,7 +93,7 @@ public class GildedRose
 		default:
 			decreaseItemQuality(item);
 
-			if (item.getSellIn() < 0)
+			if (hasSellInExpired(item))
 			{
 				if (item.getQuality() > MINIMUM_ITEM_QUALITY)
 				{
@@ -103,6 +103,11 @@ public class GildedRose
 			break;
 
 		}
+	}
+
+	private static boolean hasSellInExpired(Item item)
+	{
+		return item.getSellIn() < 0;
 	}
 
 	private static void updateItemSellIn(Item item)

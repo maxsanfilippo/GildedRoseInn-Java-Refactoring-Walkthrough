@@ -6,6 +6,8 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final int SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST = 5;
+
 	private static final int SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_TWICE_AS_FAST = 10;
 
 	private static final int MAXIMUM_ITEM_QUALITY = 50;
@@ -77,7 +79,7 @@ public class GildedRose
 						}
 					}
 
-					if (item.getSellIn() < 5)
+					if (item.getSellIn() < SELLIN_THRESHOLD_FOR_BACKSTAGE_ITEM_QUALITY_INCREASING_THREE_TIMES_AS_FAST)
 					{
 						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 						{

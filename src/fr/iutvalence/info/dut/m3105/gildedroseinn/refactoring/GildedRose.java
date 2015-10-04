@@ -6,6 +6,8 @@ import java.util.List;
 public class GildedRose
 {
 
+	private static final int MAXIMUM_ITEM_QUALITY = 50;
+
 	private static final int MINIMUM_ITEM_QUALITY = 0;
 	
 	private static List<Item> items = null;
@@ -59,7 +61,7 @@ public class GildedRose
 		}
 		else
 		{
-			if (item.getQuality() < 50)
+			if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 			{
 				item.setQuality(item.getQuality() + 1);
 
@@ -67,7 +69,7 @@ public class GildedRose
 				{
 					if (item.getSellIn() < 10)
 					{
-						if (item.getQuality() < 50)
+						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 						{
 							item.setQuality(item.getQuality() + 1);
 						}
@@ -75,7 +77,7 @@ public class GildedRose
 
 					if (item.getSellIn() < 5)
 					{
-						if (item.getQuality() < 50)
+						if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 						{
 							item.setQuality(item.getQuality() + 1);
 						}
@@ -105,7 +107,7 @@ public class GildedRose
 			}
 			else
 			{
-				if (item.getQuality() < 50)
+				if (item.getQuality() < MAXIMUM_ITEM_QUALITY)
 				{
 					item.setQuality(item.getQuality() + 1);
 				}

@@ -52,12 +52,15 @@ public class GildedRose
 	}
 
 	private void updateItemQuality(Item item)
-	{
+	{		
 		if (item.getSellIn()<0)
 			item.setQuality(item.getQuality()-2);
 		else 
-			item.setQuality(item.getQuality()-1);
-		
+			if (item.getName()=="Aged Brie")
+				item.setQuality(item.getQuality()+1);
+			else 
+				item.setQuality(item.getQuality()-1);
+			
 		if (item.getQuality()<0)
 			item.setQuality(0);
 	}

@@ -14,7 +14,6 @@ public class GildedRose
 
 	private static final int MINIMUM_ITEM_QUALITY = 0;
 
-	public static List<Item> items = null;
 
 	/**
 	 * @param args
@@ -35,7 +34,7 @@ public class GildedRose
 		updateQualityAndSellInForAllItems();
 	}*/
 
-	public void updateQualityAndSellInForAllItems()
+	public void updateQualityAndSellInForAllItems(List <Item> items)
 	{
 		for (int itemIndex = 0; itemIndex < items.size(); itemIndex++)
 		{

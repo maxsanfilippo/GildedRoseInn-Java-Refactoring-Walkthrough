@@ -53,13 +53,12 @@ public class GildedRose
 
 	private void updateItemQuality(Item item)
 	{
-		// TODO Auto-generated method stub
-		
+		item.setQuality(item.getQuality()-1);
 	}
 
-	private void updateItemSellIn(Item item) {
-		// TODO Auto-generated method stub
-		
+	private void updateItemSellIn(Item item) 
+	{
+		item.setSellIn(item.getSellIn()-1);
 	}
 
 	

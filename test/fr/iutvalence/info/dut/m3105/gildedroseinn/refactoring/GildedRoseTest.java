@@ -32,5 +32,16 @@ public class GildedRoseTest
 		assertEquals(items.get(0).getSellIn(), -1);
 		assertEquals(items.get(0).getQuality(), 78);
 	}
+	
+	@Test
+	public void updateQualitySellinForItemsQualityNeverNegative()
+	{
+		GildedRose gilded = new GildedRose();
+		List <Item> items = new ArrayList<Item>();
+		items.add(new Item("Ceci est un objet inutile", 10, 0));
+		gilded.updateQualityAndSellInForAllItems(items);
+		assertEquals(items.get(0).getSellIn(), 9);
+		assertEquals(items.get(0).getQuality(), 0);
+	}
 
 }

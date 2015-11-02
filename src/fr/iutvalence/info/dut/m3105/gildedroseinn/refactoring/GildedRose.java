@@ -53,7 +53,10 @@ public class GildedRose
 
 	private void updateItemQuality(Item item)
 	{
-		item.setQuality(item.getQuality()-1);
+		if (item.getSellIn()<0)
+			item.setQuality(item.getQuality()-2);
+		else 
+			item.setQuality(item.getQuality()-1);
 	}
 
 	private void updateItemSellIn(Item item) 

@@ -50,5 +50,17 @@ public class GildedRoseTest
 		assertEquals(items.get(0).getSellIn(), 9);
 		assertEquals(items.get(0).getQuality(), 0);
 	}
+	
+	@Test
+	public void updateQualitySellinForAgedBrie()
+	{
+		GildedRose gilded = createNewGildedRose();
+		List <Item> items = new ArrayList<Item>();
+		items.add(new Item("Aged Brie", 5, 0));
+		gilded.updateQualityAndSellInForAllItems(items);
+		assertEquals(items.get(0).getSellIn(), 4);
+		assertEquals(items.get(0).getQuality(), 1);
+	}
+	
 
 }
